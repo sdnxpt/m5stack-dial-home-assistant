@@ -126,7 +126,7 @@ async def make_ha_text(uid_prefix, index, suffix, entity_id, attribute=None):
     var = cg.new_Pvariable(uid)
     await text_sensor.register_text_sensor(var, conf)
     await cg.register_component(var, conf)
-    ha_conf = {CONF_ENTITY_ID: entity_id, CONF_INTERNAL: True}
+    ha_conf = {CONF_ID: uid, CONF_ENTITY_ID: entity_id, CONF_INTERNAL: True}
     if attribute is not None:
         ha_conf[CONF_ATTRIBUTE] = attribute
     setup_home_assistant_entity(var, ha_conf)
@@ -151,7 +151,7 @@ async def make_ha_number(uid_prefix, index, suffix, entity_id, attribute):
     var = cg.new_Pvariable(uid)
     await ha_sensor.register_sensor(var, conf)
     await cg.register_component(var, conf)
-    ha_conf = {CONF_ENTITY_ID: entity_id, CONF_INTERNAL: True, CONF_ATTRIBUTE: attribute}
+    ha_conf = {CONF_ID: uid, CONF_ENTITY_ID: entity_id, CONF_INTERNAL: True, CONF_ATTRIBUTE: attribute}
     setup_home_assistant_entity(var, ha_conf)
     return var
 
