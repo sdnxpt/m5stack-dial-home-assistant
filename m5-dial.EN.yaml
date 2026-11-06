@@ -96,7 +96,7 @@ substitutions:
 
 packages:
   m5_dial:
-    url: https://github.com/Glooob-domo/m5stack-dial-home-assistant
+    url: https://github.com/sdnxpt/m5stack-dial-home-assistant
     ref: main
     files:
       - dial.yaml
