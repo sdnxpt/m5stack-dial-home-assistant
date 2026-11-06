@@ -44,6 +44,15 @@ color:
 sendspin:
   id: sendspin_hub
 
+# Advertise the SendSpin server so Music Assistant can discover the Dial.
+mdns:
+  services:
+    - service: "_sendspin"
+      protocol: "_tcp"
+      port: 8928
+      txt:
+        path: /sendspin
+
 media_player:
   - platform: sendspin
     id: sendspin_media_player

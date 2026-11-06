@@ -121,7 +121,9 @@ FINAL_VALIDATE_SCHEMA = _final_validate_codecs
 
 
 async def to_code(config):
-    cg.add_define("USE_SENDSPIN", True)  # for MDNS
+    # No USE_SENDSPIN define: since ESPHome 2026.10 it switches on the built-in
+    # sendspin_ API/mDNS code, which this vendored copy can't satisfy. The mDNS
+    # service is declared under mdns: services: in src/pages/music.yaml instead.
 
     # Client mode - enable ESP-IDF WebSocket client
     esp32.add_idf_component(name="espressif/esp_websocket_client", ref="1.6.1")
